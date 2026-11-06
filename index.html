@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iOS Prototype Simulator</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="stage">
+    <div class="device" id="device">
+      <div class="device-buttons"><i class="b-action"></i><i class="b-volup"></i><i class="b-voldn"></i><i class="b-power"></i></div>
+      <div class="screen">
+        <div class="island"></div>
+        <header class="statusbar">
+          <span id="clock">9:41</span>
+          <span class="status-icons">
+            <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM2.9 6.3a7.2 7.2 0 0 1 10.2 0l-1.3 1.3a5.4 5.4 0 0 0-7.6 0zM.6 4A10.5 10.5 0 0 1 15.4 4l-1.3 1.3A8.7 8.7 0 0 0 1.9 5.3z"/></svg>
+            <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="22" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="19" height="9" rx="2"/><rect x="24" y="4" width="2" height="5" rx="1" opacity=".5"/></svg>
+          </span>
+        </header>
+        <div class="viewport" id="viewport"><!-- screens are rendered here --></div>
+        <div class="home-indicator" id="home" title="Home"></div>
+      </div>
+    </div>
+
+    <aside class="panel">
+      <h1>iOS Prototype Simulator</h1>
+      <p class="hint">Build screens in <code>screens/</code> and register them in <code>app.js</code>.</p>
+      <label>Device
+        <select id="deviceSelect">
+          <option value="iphone17">iPhone 17 (393×852)</option>
+          <option value="iphone17pm">iPhone 17 Pro Max (440×956)</option>
+          <option value="se">iPhone 16e (390×844)</option>
+        </select>
+      </label>
+      <label>Appearance
+        <select id="themeSelect"><option value="light">Light</option><option value="dark">Dark</option></select>
+      </label>
+      <label>Zoom <input type="range" id="zoom" min="50" max="130" value="90"></label>
+      <button id="reload">Reload screen</button>
+    </aside>
+  </main>
+  <script>var Screens = {};</script>
+  <script src="screens/home.js"></script>
+  <script src="screens/detail.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
